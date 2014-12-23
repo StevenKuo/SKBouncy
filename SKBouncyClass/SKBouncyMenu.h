@@ -11,8 +11,14 @@
 extern NSString *const SKBouncyMenuItemImageKey;
 extern NSString *const SKBouncyMenuItemTitleKey;
 
+@interface Icon : UIView
+
+@property (assign, nonatomic) CGFloat delta;
+@end
+
 @interface BouncyAnimationView : UIView
 
+@property (retain, nonatomic) id switchView;
 @property (retain, nonatomic) id responseView;
 @property (assign, nonatomic) CGFloat delta;
 @end
@@ -28,12 +34,14 @@ extern NSString *const SKBouncyMenuItemTitleKey;
 	UIView *sideHelperView;
 	UIView *centerHelperView;
 	UIView *contentView;
+	UIView *iconHelpView;
 	
 	CADisplayLink *displayLoop;
 	NSUInteger animationCount;
 	BOOL isOpen;
 	
 	BouncyAnimationView *animationView;
+	Icon *iconView;
 	
 	NSArray *itemInfo;
 	NSString *cellIdentifier;
